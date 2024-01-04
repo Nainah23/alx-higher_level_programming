@@ -76,7 +76,7 @@ def xplay(cboard, row, column):
 def r_soln(cboard, row, queens, solns):
     """solves the puzzle recursively
     Args:
-        cboard (list): chessboard
+        cboard (list): chesboard
         row (int): row
         queens (int): total placed queens
         solns (list) list array of solns
