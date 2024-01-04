@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """provides a soln to the N-queens puzzle
 derives all solns to placing N non-attacking queens on an N×N chessboard
 
@@ -13,7 +13,7 @@ def board_in(n):
     cboard = []
     [cboard.append([]) for x in range(n)]
     [row.append(' ') for x in range(n) for row in cboard]
-    return (board)
+    return (cboard)
 def dcopy_board(cboard):
     """Gets the chessboard deep copy"""
     if isinstance(cboard, list):
@@ -62,7 +62,7 @@ def xplay(cboard, row, column):
         j -= 1
     j = column + 1
     for i in range(row - 1, -1, -1):
-        if c >= len(cboard):
+        if j >= len(cboard):
             break
         cboard[i][j] = "x"
         j += 1
@@ -91,7 +91,7 @@ def r_soln(cboard, row, queens, solns):
         if cboard[row][j] == " ":
             tmp_cboard = dcopy_board(cboard)
             tmp_cboard[row][j] = "Q"
-            xplay(tmp_cboard, row, c)
+            xplay(tmp_cboard, row, j)
             solns = r_soln(tmp_cboard, row + 1, queens + 1, solns)
 
     return (solns)
@@ -102,11 +102,11 @@ if __name__ == "__main__":
     if sys.argv[1].isdigit() is False:
         print("N must be a number")
         sys.exit(1)
-    if int(sys.argv[1] < 4:
+    if int(sys.argv[1]) < 4:
             print ("N must be at least 4")
             sys.exit(1)
 
     cboard = board_in(int(sys.argv[1]))
-    solns = r_solve(cboard, 0, 0, [])
+    solns = r_soln(cboard, 0, 0, [])
     for sol in solns:
             print(sol)
