@@ -12,7 +12,7 @@ class Rectangle:
     print_symbol = "#"
     def __init__(self, width=0, height=0):
         """Rectangle initialization
-        
+
         Args:
             width (int): Rectangle width(new)
             height (int): Rectangle height(new)
@@ -25,7 +25,7 @@ class Rectangle:
     def width(self):
         """Define rectangle width"""
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -56,7 +56,7 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return (0)
         return ((self.__width * 2) + (self.__height * 2))
-    
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Return the rect with a bigger area

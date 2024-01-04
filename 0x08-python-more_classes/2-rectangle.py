@@ -5,7 +5,7 @@ class Rectangle:
     """Defines as rectangle"""
     def __init__(self, width=0, height=0):
         """Rectangle initialization
-        
+
         Args:
             width (int): Rectangle width(new)
             height (int): Rectangle height(new)
@@ -17,7 +17,7 @@ class Rectangle:
     def width(self):
         """Define rectangle width"""
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
