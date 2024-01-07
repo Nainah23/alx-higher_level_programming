@@ -1,28 +1,28 @@
 #!/usr/bin/python3
-"""Definesadividefnforamatrix"""
-defmatrix_divided(matrix,div):
-"""Dividesallmatrixelements.
+"""Defines a divide fn for a matrix"""
+def matrix_divided(matrix, div):
+    """Divides all matrix elements.
 
-Args:
-matrix(list):(listoflists)ofintegers/floats
-div(int/float):divisionsign
+    Args:
+        matrix (list): (list of lists) of integers/floats
+        div (int/float): division sign
 
-Raises:
-TypeError:Ifnotanint
-TypeError:ifmatricesareofdifferentsizes
-TypeError:ifdiv!=int/float
-ZeroDivisionError:ifdiv=0
+    Raises:
+        TypeError: If not an int
+        TypeError: if matrices are of different sizes
+        TypeError: if div != int/float
+        ZeroDivisionError: if div = 0
 
-Return:
-divisionresultinamatrix
-"""
-if(notisinstance(matrix,list)ormatrix==[]ornotall((isinstance(ele,int)
-orisinstance(ele,float))forelein[numforrowinmatrixfornuminrow])):
-raiseTypeError("matrixmustbeamatrix(listoflists)of""integers/floats")
-ifnotall(len(row)==len(matrix[0])forrowinmatrix):
-raiseTypeError("Eachrowofthematrixmusthavethesamesize")
-ifnotisinstance(div,int)andnotisinstance(div,float):
-raiseTypeError("divmustbeanumber")
-ifdiv==0:
-raiseZeroDivisionError("divisionbyzero")
-return([list(map(lambdax:round(x/div,2),row))forrowinmatrix])
+    Return:
+        division result in a matrix
+    """
+    if (not isinstance(matrix, list) or matrix == [] or not all((isinstance(ele, int)
+        or isinstance(ele, float)) for ele in [num for row in matrix for num in row])):
+        raise TypeError("matrix must be a matrix (list of lists) of " "integers/floats")
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
+    if not isinstance(div, int) and not isinstance(div, float):
+        raise TypeError("div must be a number")
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
+    return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])

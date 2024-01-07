@@ -1,26 +1,26 @@
 #!/usr/bin/python3
-"""Definesafnthatindentstext"""
-deftext_indentation(text):
-"""
-printsatextwith2newlinesaftereachofthesecharacters:.,?and:
+"""Defines a fn that indents text"""
+def text_indentation(text):
+    """
+     prints a text with 2 new lines after each of these characters: ., ? and :
 
-Args:
-text(str):printedtext
-Raises:
-TypeError:Iftext!=string
-"""
-ifnotisinstance(text,str):
-raiseTypeError("textmustbeastring")
-x=0
-whilex<len(text)andtext[x]=='':
-x+=1
-whilex<len(text):
-print(text[x],end="")
-iftext[x]=="\n"ortext[x]in".?:":
-iftext[x]in".?:":
-print("\n")
-x+=1
-whilex<len(text)andtext[x]=='':
-x+=1
-continue
-x+=1
+    Args:
+        text (str): printed text
+    Raises:
+        TypeError: If text != string
+    """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    x = 0
+    while x < len(text) and text[x] == ' ':
+        x += 1
+    while x < len(text):
+        print(text[x], end="")
+        if text[x] == "\n" or text[x] in ".?:":
+            if text[x] in ".?:":
+                print("\n")
+            x += 1
+            while x < len(text) and text[x] == ' ':
+                x += 1
+            continue
+        x += 1
