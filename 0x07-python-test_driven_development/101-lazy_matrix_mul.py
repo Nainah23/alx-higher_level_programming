@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ multiplies 2 matrices by using the module NumPy"""
+import numpy as num
 def lazy_matrix_mul(m_a, m_b):
     """
     Returns the prod of multiplying 2 matrices
@@ -7,4 +8,4 @@ def lazy_matrix_mul(m_a, m_b):
         m_a : first matrix
         m_b : second matrix
     """
-    return (np.matmul(m_a, m_b))
+    return (num.matmul(m_a, m_b))
